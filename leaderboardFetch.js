@@ -1,6 +1,5 @@
 const fs = require("fs");
 const ck = require("ckey");
-const _ = require("lodash");
 
 const axiosCookieStub = require("./utils/axiosCookieStub");
 
@@ -20,7 +19,6 @@ async function getLeaderBoardFromLocal() {
 	return JSON.parse(board);
 }
 
-
 async function getLeaderBoard() {
 	let board;
 	try { board = await axios.get(`https://adventofcode.com/${new Date().getFullYear()}/leaderboard/private/view/${boardUserId}.json`
@@ -37,18 +35,4 @@ function writeBoardToLocal(board) {
 	});
 }
 
-function getObjectDiff(board1, board2) {
-    const diff = Object.keys(board1).reduce((result, key) => {
-        if (!board2.hasOwnProperty(key)) {
-            result.push(key);
-        } else if (_.isEqual(board1[key], board2[key])) {
-            const resultKeyIndex = result.indexOf(key);
-            result.splice(resultKeyIndex, 1);
-        }
-        return result;
-    }, Object.keys(board2));
-
-    return diff;
-}
-
-module.exports = {getLeaderBoardFromLocal, getLeaderBoard, writeBoardToLocal, getObjectDiff};
+module.exports = {getLeaderBoardFromLocal, getLeaderBoard, writeBoardToLocal};
