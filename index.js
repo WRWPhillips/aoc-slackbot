@@ -36,7 +36,7 @@ async function tryCompare() {
     const messages = getMessages(prevBoard['members'], nextBoard['members'], diff);
     messages.push.apply(messages, newMemberMessages);
 
-    postMessages('We have an update for KiteString Advent Of Code: \n' + messages.join(' \n'));
+    postMessages('We have an update for Kitestring Advent of Code: \n' + messages.join(' \n'));
 
     writeBoardToLocal(nextBoard);
   } else {
