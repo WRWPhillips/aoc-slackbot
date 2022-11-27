@@ -29,7 +29,6 @@ async function tryCompare() {
 
 		let messages = getMessages(prevBoard["members"], nextBoard["members"], diff)
 		messages.push.apply(messages, newMemberMessages);
-		messages.forEach(msg => console.log(msg));
 
 		postMessages("We have an update for KiteString Advent Of Code: \n" + messages.join(" \n"));
 
