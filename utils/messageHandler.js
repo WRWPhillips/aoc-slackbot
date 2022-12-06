@@ -15,4 +15,17 @@ function getMessages(obj1, obj2, diffKeyArr) {
   return msgArr;
 }
 
-module.exports = getMessages;
+function getRankingMessage(board) {
+	let rankings = []
+	const keys = Object.keys(board["members"]);
+	for (let i = 0; i < keys.length; i++) {
+		const record = board.members[keys[i]];
+		rankings.push(record);
+	}
+
+	return rankings.sort((a, b) => (a.local_score < b.local_score) ? 1 : -1).map((playerObj, i) => {
+		return `#${i + 1}: ${playerObj.name} has ${playerObj.local_score} points and ${playerObj.stars} stars.`
+	}).join(" \n");
+}
+
+module.exports = {getMessages, getRankingMessage};
