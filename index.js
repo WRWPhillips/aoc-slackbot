@@ -15,7 +15,7 @@ const getObjectDiff = require('./utils/getObjectDiff');
 const { 
 	getMessages, 
 	getRankingMessage 
-} = require('./utils/messageHandler');
+} = require('./utils/createMessages');
 
 const postMessages = require('./utils/postMessages');
 
