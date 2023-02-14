@@ -23,7 +23,7 @@ client.on('error', (err) => console.log('Redis Client Error', err));
 
 const axios = axiosCookieStub(cookie);
 
-async function getLeaderBoardFromLocal() {
+async function getLeaderBoardFromRedis() {
   let board;
 
   try {	
@@ -64,4 +64,4 @@ async function writeBoardToLocal(board) {
   await client.disconnect();
 }
 
-module.exports = {getLeaderBoardFromLocal, getLeaderBoard, writeBoardToLocal};
+module.exports = {getLeaderBoardFromRedis, getLeaderBoard, writeBoardToLocal};
